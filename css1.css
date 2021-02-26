@@ -1,0 +1,27 @@
+
+a {		
+	
+		background-color:#FFFFFF;
+		color:#0033CC;
+		font-family:Cou	rier New;
+		font-style:oblique;
+		font-size:18px;
+		text-decoration:none;
+}
+a:hover {
+			color:#000000;
+
+			border-bottom:thick;
+			/*background-color:#000000;
+			border-bottom-color:#FF0000;
+			*/
+			font-family:inherit;
+			font-style:italic;
+			text-transform:uppercase;  
+		/*	font:bolder;  */
+ 			font-size:18px;
+		
+			
+}/* CSS Docu
+ment */
+

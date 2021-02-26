@@ -1,0 +1,8 @@
+
+.tab {
+		color:#000000;
+	}
+.tab.HOVER  {
+			color:#FF0000;
+			text-decoration:underline;
+	}		

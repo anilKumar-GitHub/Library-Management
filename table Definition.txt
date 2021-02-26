@@ -1,0 +1,119 @@
+UPDATE book_list SET Status = 0 
+
+
+Table Defination
+
+
+CREATE TABLE Branch (Branch_Code varchar(6) NOT NULL,Branch_Name varchar(50) NOT NULL,PRIMARY KEY (Branch_Code),UNIQUE(Branch_Name))
+
+
+CREATE TABLE Edition(
+NUM int NOT NULL PRIMARY KEY,
+ALPHA varchar(20) NOT NULL)
+
+
+CREATE TABLE Questions(
+Num int Primary Key,
+Question varchar(50) NOT NULL)
+
+
+CREATE TABLE Book_Stack(
+Book_ID varchar(15) NOT NULL,
+Title varchar(40) NOT NULL,
+Author varchar(50)  NOT NULL,	
+Publisher varchar(30) NOT NULL,
+Edition int NOT NULL,
+Department varchar(6) NOT NULL,
+Price Decimal(10,2) NOT NULL,
+Totla_Books int,
+Issued_Books int,
+Available_Books int,
+PRIMARY KEY(Book_ID, Title, Author, Edition),
+FOREIGN KEY(Department) REFERENCES Branch (Branch_Code),
+FOREIGN KEY(Edition) REFERENCES Edition (NUM))
+
+
+
+CREATE TABLE Book_list(
+ISBN varchar(20),
+Book_ID varchar(15) NOT NULL,
+Book_No varchar(15) PRIMARY KEY,
+Status int NOT NULL,
+FOREIGN KEY(Book_ID) REFERENCES Book_Stack(Book_ID))
+
+
+CREATE TABLE Registration(
+Reg_No  varchar(15) NOT NULL,
+Name  varchar(50) NOT NULL,
+Fname  varchar(60) NOT NULL,
+Gender  varchar(6) NOT NULL,
+DOB  Date NOT NULL,
+Address  varchar(150) NOT NULL,
+email  varchar(50) NOT NULL,
+Ph_No  varchar(18) NOT NULL,
+Residancial_No  varchar(18) NOT NULL,
+Security_Q  int NOT NULL,
+Ans  varchar(40) NOT NULL,
+Clg_Name  varchar(100),
+Clg_Add  varchar(150),
+Sem  varchar(30),
+Course  varchar(6),  
+Password  varchar(15) NOT NULL,
+PRIMARY KEY(Reg_No),
+FOREIGN KEY(Course) REFERENCES branch(Branch_Code))
+
+CREATE TABLE RegistrationRequest(
+Reg_No  varchar(15) NOT NULL,
+Name  varchar(50) NOT NULL,
+Fname  varchar(60) NOT NULL,
+Gender  varchar(6) NOT NULL,
+DOB  Date NOT NULL,
+Address  varchar(150) NOT NULL,
+email  varchar(50) NOT NULL,
+Ph_No  varchar(18) NOT NULL,
+Residancial_No  varchar(18) NOT NULL,
+Security_Q  int NOT NULL,
+Ans  varchar(40) NOT NULL,
+Clg_Name  varchar(100),
+Clg_Add  varchar(150),
+Sem  varchar(30),
+Course  varchar(6),  
+Password  varchar(15) NOT NULL,
+PRIMARY KEY(Reg_No),
+FOREIGN KEY(Course) REFERENCES branch(Branch_Code))
+
+CREATE TABLE Issue (
+Book_No varchar(15) PRIMARY KEY,
+Reg_No  varchar(15) NOT NULL,
+Date_of_Issue DATE NOT NULL,
+Return_Date DATE NOT NULL,
+FOREIGN KEY(Book_No) REFERENCES Book_list(Book_No),
+FOREIGN KEY(Reg_No) REFERENCES registration(Reg_No))
+
+
+
+CREATE TABLE Old_Transaction (
+Book_No varchar(15) NOT NULL,
+Reg_No varchar(15) NOT NULL,
+Issued_Date DATE NOT NULL,
+Return_Date DATE NOT NULL,
+PRIMARY KEY(Book_No, Reg_No, Issued_Date,Return_Date),
+FOREIGN KEY(Book_No) REFERENCES Book_list(Book_No),
+FOREIGN KEY(Reg_No) REFERENCES registration(Reg_No))
+
+
+
+CREATE TABLE lib_mnger(
+SSN  varchar(15) NOT NULL,
+Name  varchar(50) NOT NULL,
+Fname  varchar(60) NOT NULL,
+Gender  varchar(6) NOT NULL,
+DOB  Date NOT NULL,
+Address  varchar(150) NOT NULL,
+email  varchar(50) NOT NULL,
+Ph_No  varchar(18) NOT NULL,
+Residancial_No  varchar(18) NOT NULL,
+Security_Q  INT NOT NULL,
+Ans  varchar(40) NOT NULL,
+Password  varchar(15) NOT NULL,
+PRIMARY KEY(SSN))

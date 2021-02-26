@@ -1,0 +1,21 @@
+var js_user = document.loginForm.user.value ;
+if( isBlank ( js_user ) ) {
+alert ( " Enter the User Name " ) ;
+return fasle; }
+
+var js_pass = document.loginForm.pass.value ;
+if( isBlank ( js_pass ) ) {
+alert ( " Enter the Password " ) ;
+return fasle; }
+
+return true;
+}
+
+
+function isBlank ( str ) {
+var len = str.length ;
+for ( i = 0 ; i < len ; i ++ ) {
+if( str.charAt ( i ) ! = " " ) {
+return false;  }
+}
+return false;
